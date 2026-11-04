@@ -1,0 +1,2 @@
+task_id,backbone,dataset,condition,data_seed,reward,transfer,methods,n_fit,n_early,n_validation,n_test
+gte__hsteer__skywork__gemma-3-1b-it_to_gemma-3-12b-it__seed0,gte,hsteer,skywork__gemma-3-1b-it_to_gemma-3-12b-it,0,skywork,gemma-3-1b-it_to_gemma-3-12b-it,dm;mips;mips_with_reward_supervision;sbe_mips,20,2,4,6

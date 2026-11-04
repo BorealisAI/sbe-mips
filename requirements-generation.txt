@@ -1,0 +1,19 @@
+-r requirements.txt
+# Resolve the GPU stack in one transaction. vLLM 0.11.0 requires torch 2.8.0.
+vllm==0.11.0
+torch==2.8.0
+transformers==4.55.2
+PyYAML>=6
+tqdm>=4.66
+datasets>=2.18
+accelerate>=0.30
+sentencepiece>=0.2
+# Build/runtime dependencies for FlashAttention (installed after this GPU stack).
+packaging>=23
+ninja>=1.11
+setuptools>=77,<80
+wheel
+psutil
+einops
+# Then install FlashAttention using the command in README.md.
+# bitsandbytes is needed only when runtime.load_in_4bit=true.

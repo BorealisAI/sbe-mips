@@ -1,0 +1,96 @@
+{
+  "schema_version": 5,
+  "initialization_seed": 0,
+  "dm": {
+    "epochs": 20,
+    "config": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "epochs": 20,
+      "min_lr_ratio": 0.1,
+      "batch_size": 128,
+      "gradient_clip": 1.0
+    }
+  },
+  "mips": {
+    "epochs": 20,
+    "config": {
+      "ratio_hidden_dims": "64,32",
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "batch_size": 128,
+      "lambda_ratio_norm": 0.001
+    }
+  },
+  "reward_mips": {
+    "epochs": 20,
+    "config": {
+      "mrs_z_dim": 16,
+      "mrs_encoder_hidden_dims": "64,32",
+      "reward_hidden_dims": "64,32",
+      "ratio_hidden_dims": "64,32",
+      "dropout": 0.1,
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "batch_size": 128,
+      "reward_target_transform": "standardize",
+      "mrs_warmup_epochs": 1,
+      "mrs_lambda_reward": 1.0,
+      "mrs_lambda_cls": 1.0,
+      "mrs_lambda_ratio_norm": 0.001
+    }
+  },
+  "sbe": {
+    "representation_stage": "pretrain",
+    "pretrain_epochs": 20,
+    "head_epochs": 20,
+    "representation": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "decoder_hidden_dims": [
+        32
+      ],
+      "z_dim": 8,
+      "dropout": 0.1,
+      "logvar_init": -1.0,
+      "logvar_min": -6.0,
+      "logvar_max": 2.0,
+      "reward_mode": "additive_context",
+      "context_ridge_alpha": 1.0,
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "encoder_lr_multiplier": 1.0,
+      "min_lr_ratio": 0.1,
+      "epochs": 20,
+      "batch_size": 128,
+      "kl_weight": 0.01,
+      "kl_warmup_epochs": 10,
+      "train_mc_samples": 2,
+      "gradient_clip": 1.0
+    },
+    "head": {
+      "family": "bounded_mlp",
+      "hidden_dims": [
+        32
+      ],
+      "context_hidden_dims": [
+        32
+      ],
+      "latent_hidden_dims": [
+        32
+      ],
+      "epochs": 20,
+      "batch_size": 128,
+      "train_samples": 4,
+      "inference_samples": 16
+    }
+  }
+}
